@@ -1,5 +1,7 @@
 import "./style.css";
 
+const projects = [];
+
 const createSidebar = (() => {
   const makenew = document.querySelector(".makenew");
   const inputnew = document.createElement("input");
@@ -15,17 +17,22 @@ const createSidebar = (() => {
 })();
 
 const createProject = (() => {
-  const projects = [];
   const newproject = document.querySelector(".inputnew");
   const submit = document.querySelector(".submitnew");
   submit.addEventListener("click", () => {
-    console.log("HEI");
     //Sett opp slik at det ikke går hvis dette fieldet er tomt
-    console.log(newproject.value);
     projects.push(newproject.value);
     console.log(projects);
   });
 })();
 
-// createSidebar();
-// createProject();
+const listProjects = () => {
+  //   for (let val in projects) {
+  //     console.log("Her:" + val);
+  //   }
+  for (let i = 0; i < projects.length; i++) {
+    console.log(projects[i]);
+  }
+};
+
+listProjects();
