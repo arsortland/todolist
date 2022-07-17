@@ -1,6 +1,6 @@
 import "./style.css";
 
-const createSidebar = () => {
+const createSidebar = (() => {
   const makenew = document.querySelector(".makenew");
   const inputnew = document.createElement("input");
   const submitnew = document.createElement("button");
@@ -12,9 +12,9 @@ const createSidebar = () => {
   submitnew.classList.add("submitnew");
   makenew.appendChild(inputnew);
   makenew.appendChild(submitnew);
-};
+})();
 
-const createProject = () => {
+const createProject = (() => {
   const projects = [];
   const newproject = document.querySelector(".inputnew");
   const submit = document.querySelector(".submitnew");
@@ -25,7 +25,7 @@ const createProject = () => {
     projects.push(newproject.value);
     console.log(projects);
   });
-};
+})();
 
-createSidebar();
-createProject();
+// createSidebar();
+// createProject();
