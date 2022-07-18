@@ -67,3 +67,42 @@ listProjects();
  * each array contains the todos
  * list all todos in mainarea of selected project
  */
+
+//OR
+
+/**
+ * Make a form, like in the PHP exam and collect all projects as a dropdown
+ * Use that as a way to have the user select the project in which they create a new todo
+ */
+
+const todo = (name) => {
+  return name;
+};
+
+const project = () => {
+  const projarr = [];
+
+  const projname = (name) => {
+    projarr.push(projname);
+  };
+
+  return { projarr, projname };
+};
+
+// allprojects = (x) => {
+//   for (let i = 0; i < x.length; i++) {
+//     return x[i];
+//   }
+// };
+
+// const todo = (name) => {
+//   const getName = () => name;
+//   return { getName };
+// };
+// const prosjektnavn = [];
+// const test = todo("Kjetil");
+// prosjektnavn.push(test);
+// console.log(test.getName());
+// for (let i = 0; i < prosjektnavn.length; i++) {
+//   console.log(prosjektnavn[i].getName());
+// }
