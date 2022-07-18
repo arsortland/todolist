@@ -1,6 +1,4 @@
-import { todos } from "./logic";
-
-export const createSidebar = () => {
+export const createSidebar = (() => {
   const makenew = document.querySelector(".makenew");
   const inputnew = document.createElement("input");
   const submitnew = document.createElement("button");
@@ -11,4 +9,4 @@ export const createSidebar = () => {
   submitnew.classList.add("submitnew");
   makenew.appendChild(inputnew);
   makenew.appendChild(submitnew);
-};
+})();

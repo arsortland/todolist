@@ -1,20 +1,7 @@
 import "./style.css";
+import { createSidebar } from "./dom";
 
 const projects = [];
-
-const createSidebar = (() => {
-  const makenew = document.querySelector(".makenew");
-  const inputnew = document.createElement("input");
-  const submitnew = document.createElement("button");
-
-  inputnew.setAttribute("type", "text");
-  inputnew.setAttribute("required", "");
-  submitnew.textContent = "Add Project";
-  inputnew.classList.add("inputnew");
-  submitnew.classList.add("submitnew");
-  makenew.appendChild(inputnew);
-  makenew.appendChild(submitnew);
-})();
 
 const createProject = (() => {
   const newproject = document.querySelector(".inputnew");
@@ -22,7 +9,6 @@ const createProject = (() => {
   submit.addEventListener("click", () => {
     //Sett opp slik at det ikke går hvis dette fieldet er tomt
     projects.push(newproject.value);
-    // console.log(projects);
     listProjects();
   });
 })();
@@ -52,6 +38,7 @@ const showProject = () => {
   const mainarea = document.querySelector(".mainarea");
   allProjects.forEach((project) => {
     project.addEventListener("click", () => {
+      mainarea.innerHTML = "";
       console.log(project.innerHTML);
       const currproject = document.createElement("div");
       currproject.textContent = project.innerHTML;
@@ -60,49 +47,8 @@ const showProject = () => {
   });
 };
 
-listProjects();
-
 /**
  * Make each project an array
  * each array contains the todos
  * list all todos in mainarea of selected project
  */
-
-//OR
-
-/**
- * Make a form, like in the PHP exam and collect all projects as a dropdown
- * Use that as a way to have the user select the project in which they create a new todo
- */
-
-const todo = (name) => {
-  return name;
-};
-
-const project = () => {
-  const projarr = [];
-
-  const projname = (name) => {
-    projarr.push(projname);
-  };
-
-  return { projarr, projname };
-};
-
-// allprojects = (x) => {
-//   for (let i = 0; i < x.length; i++) {
-//     return x[i];
-//   }
-// };
-
-// const todo = (name) => {
-//   const getName = () => name;
-//   return { getName };
-// };
-// const prosjektnavn = [];
-// const test = todo("Kjetil");
-// prosjektnavn.push(test);
-// console.log(test.getName());
-// for (let i = 0; i < prosjektnavn.length; i++) {
-//   console.log(prosjektnavn[i].getName());
-// }
