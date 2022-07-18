@@ -28,3 +28,8 @@ html, body{
     grid-area: mainarea;
     background-color: rgb(146, 14, 14);
 }
+
+.aproject{
+    padding: 1rem;
+    font-size: 2rem;
+}
