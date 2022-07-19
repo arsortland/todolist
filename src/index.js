@@ -1,40 +1,35 @@
 import "./style.css";
-import { createSidebar } from "./dom";
 
-/**
- * Make each project an array
- * each array contains the todos
- * list all todos in mainarea of selected project
- */
+const projects = [["General"]];
 
-const toDo = (name) => {};
-
-const addToDo = () => {
-  const mainarea = document.querySelector(".mainarea");
-  const tododiv = document.createElement("div");
-  const form = document.createElement("form");
-  const inputname = document.createElement("input");
-  inputname.setAttribute("type", "text");
-  inputname.setAttribute("placeholder", "New todo");
-  const submit = document.createElement("input");
-  submit.setAttribute("type", "submit");
-  submit.setAttribute("value", "Add ToDo");
-  const date = document.createElement("input");
-  date.setAttribute("type", "date");
-
-  const checkboxdiv = document.createElement("div");
-
-  const label = document.createElement("label");
-  label.setAttribute("for", "done");
-  label.textContent = "Done";
-  const done = document.createElement("input");
-  done.setAttribute("type", "checkbox");
-  done.setAttribute("name", "done");
-  checkboxdiv.append(label, done);
-
-  form.append(inputname, date, checkboxdiv, submit);
-  tododiv.append(form);
-  mainarea.appendChild(tododiv);
+const addToDo = (name) => {
+  return { name };
 };
 
-addToDo();
+const addProject = (name) => {
+  //eventlistener and use this function to add the content of input
+  projects.push([name]);
+};
+
+const listProject = () => {
+  //function here
+};
+
+const listView = () => {
+  const listexisting = document.querySelector(".listexisting");
+  const newform = document.createElement("form");
+  listexisting.appendChild(newform);
+
+  for (let i = 0; i < projects.length; i++) {
+    const newdiv = document.createElement("div");
+    const button = document.createElement("button");
+    button.textContent = projects[i][0];
+    newform.append(newdiv, button);
+  }
+};
+
+listView();
+
+//Make it so that the projects first index (the name) is shown as the header
+//in the mainarea, then the rest of the project are listed as objects beneath.
+//Take date and prio last, use same logic as listview function.
