@@ -1,4 +1,4 @@
-const projects = [];
+const projects = ["General"];
 
 export const createSidebar = (() => {
   const form = document.querySelector(".form");
@@ -22,13 +22,6 @@ export const createProject = (() => {
     listProjects();
   });
 })();
-
-// const defaultProject = (() => {
-//   const listexisting = document.querySelector(".form");
-//   let general = document.createElement("div");
-//   general.textContent = "General";
-//   listexisting.appendChild(general);
-// })();
 
 export const listProjects = () => {
   const listexisting = document.querySelector(".listexisting");
@@ -56,3 +49,5 @@ export const showProject = () => {
     });
   });
 };
+
+listProjects();
