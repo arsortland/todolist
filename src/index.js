@@ -3,11 +3,22 @@ import "./style.css";
 const projects = [["General"]];
 
 const addToDo = (name) => {
+  //Need to be implemented at "X" in each project [][X]
   return { name };
 };
 
+const projectEvent = (() => {
+  const inputfield = document.querySelector(".newtodo");
+  const submit = document.querySelector(".submittodo");
+  submit.addEventListener("click", () => {
+    // console.log(inputfield.value);
+    addProject(inputfield.value);
+    listView(); // makes the list again
+  });
+})();
+
 const addProject = (name) => {
-  //eventlistener and use this function to add the content of input
+  //eventlistener and use this function to add the content of input (outside this function)
   projects.push([name]);
 };
 
@@ -17,6 +28,7 @@ const listProject = () => {
 
 const listView = () => {
   const listexisting = document.querySelector(".listexisting");
+  listexisting.textContent = ""; //Clears entire area each time.
   const newform = document.createElement("form");
   listexisting.appendChild(newform);
 
