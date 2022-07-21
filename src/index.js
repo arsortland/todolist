@@ -23,7 +23,7 @@ const listView = () => {
   }
 };
 //DOM
-const projectEvent = (() => {
+const createProject = (() => {
   const inputfield = document.querySelector(".newproject");
   const submit = document.querySelector(".submitproject");
   submit.addEventListener("click", () => {
@@ -41,10 +41,13 @@ const addToDo = (name) => {
   //Need to be implemented at "X" in each project [][X]
   return { name };
 };
+const addToDoDOM = () => {};
 
-const listProject = () => {
+const listProjectToDo = (() => {
   //function here
-};
+  const mainarea = document.querySelector(".mainarea");
+  // mainarea.textContent = projects[0][0];
+})();
 
 const onPageLoad = (() => {
   listView();
