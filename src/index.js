@@ -44,7 +44,12 @@ const todo = (name) => {
 
 const addToDo = () => {
   const addtodobtn = document.querySelector(".addtodobtn");
-  addtodobtn.addEventListener("click", () => {});
+  const inputtodo = document.querySelector(".inputtodo");
+  addtodobtn.addEventListener("click", () => {
+    console.log(addtodobtn.value);
+    console.log(inputtodo.value);
+    todo(inputtodo.value);
+  });
 };
 
 window.onload = () => {
@@ -57,10 +62,10 @@ const showProjectInMain = () => {
   allprojects.forEach((btn) => {
     btn.addEventListener("click", () => {
       //findIndex
-      console.log(btn.textContent);
+      // console.log(btn.textContent);
       for (let i = 0; i < projects.length; i++) {
         if (projects[i][0] == btn.textContent) {
-          console.log(i);
+          // console.log(i);
           const mainarea = document.querySelector(".mainarea");
           mainarea.textContent = projects[i][0];
           const inputtodo = document.createElement("input");
@@ -72,6 +77,7 @@ const showProjectInMain = () => {
           addtodobtn.setAttribute("value", i);
           mainarea.appendChild(inputtodo);
           mainarea.appendChild(addtodobtn);
+          addToDo();
           //Have to so the value is used to append the actual to do data to the right projectlist
         }
       }
