@@ -38,9 +38,13 @@ const ProjectMain = (() => {
   });
 })();
 
-const addToDo = (name) => {
-  //Need to be implemented at "X" in each project [][X]
+const todo = (name) => {
   return { name };
+}; //Return actual factory function here.
+
+const addToDo = () => {
+  const addtodobtn = document.querySelector(".addtodobtn");
+  addtodobtn.addEventListener("click", () => {});
 };
 
 window.onload = () => {
@@ -59,10 +63,14 @@ const showProjectInMain = () => {
           console.log(i);
           const mainarea = document.querySelector(".mainarea");
           mainarea.textContent = projects[i][0];
+          const inputtodo = document.createElement("input");
+          inputtodo.setAttribute("type", "text");
+          inputtodo.classList.add("inputtodo");
           const addtodobtn = document.createElement("button");
           addtodobtn.textContent = "+";
           addtodobtn.classList.add("addtodobtn");
           addtodobtn.setAttribute("value", i);
+          mainarea.appendChild(inputtodo);
           mainarea.appendChild(addtodobtn);
           //Have to so the value is used to append the actual to do data to the right projectlist
         }
