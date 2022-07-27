@@ -1,58 +1,64 @@
 import "./style.css";
 
-const projects = [["General"]];
+const projects = [];
+const inbox = [];
+const mainarea = document.querySelector(".mainarea");
+const sidebar = document.querySelector(".sidebar");
+const topbar = document.querySelector(".topbar");
 
-const addProject = (name) => {
-  //eventlistener and use this function to add the content of input (outside this function)
-  projects.push([name]);
-};
 //DOM
-const listView = () => {
-  const listexisting = document.querySelector(".listexisting");
-  listexisting.textContent = ""; //Clears entire area each time.
-  const newform = document.createElement("form");
-  newform.setAttribute("onsubmit", "return false;");
-  listexisting.appendChild(newform);
-
-  for (let i = 0; i < projects.length; i++) {
-    const newdiv = document.createElement("div");
-    const button = document.createElement("button");
-    button.classList.add("projectname");
-    button.textContent = projects[i][0];
-    newform.append(newdiv, button);
-  }
+const showProjectHeader = (name) => {
+  //Create the header
+  const projectname = document.createElement("div");
+  projectname.classList.add(".projectname");
+  projectname.textContent = name;
+  //Create the add button
+  const addNewTodo = document.createElement("button");
+  addNewTodo.classList.add("addnewtodobtn");
+  addNewTodo.textContent = "+";
+  //Adding the project name as value
+  addNewTodo.value = name;
+  //Adding the DOM to mainarea
+  projectname.appendChild(addNewTodo);
+  mainarea.appendChild(projectname);
 };
-//DOM
-const createProject = (() => {
-  const inputfield = document.querySelector(".newproject");
-  const submit = document.querySelector(".submitproject");
-  submit.addEventListener("click", () => {
-    if (inputfield.value != "") {
-      addProject(inputfield.value); //adds the inputfield to projectarray
-      listView(); // makes the list again of projects in array
-      inputfield.value = "";
-    } else {
-      return;
-    }
-  });
+
+//Loading into project on new pageload using a Module
+const onWindowLoad = (() => {
+  showProjectHeader("Inbox");
 })();
 
-const addToDo = (name) => {
-  //Need to be implemented at "X" in each project [][X]
-  return { name };
+//Logic
+const todoFactory = (project, name, prio, date, desc) => {
+  projects.push(project);
+  return { project, name, prio, date, desc };
 };
-const addToDoDOM = () => {};
 
-const listProjectToDo = (() => {
-  //function here
-  const mainarea = document.querySelector(".mainarea");
-  // mainarea.textContent = projects[0][0];
-})();
+const createToDoForm = () => {
+  const form = document.createElement("form");
+  const name = document.createElement("input");
+  name.setAttribute("type", "text");
+  //Prio as selection
+  //date as date
+  //desc as textarea
+  //Make it a modal using no HTML?
+};
 
-const onPageLoad = (() => {
-  listView();
-})();
+const addToDoToProject = () => {
+  const addnewtodobtn = document.querySelector(".addnewtodobtn");
+  addnewtodobtn.onclick = function () {
+    //function that displays modal/form
+  };
+};
 
-//Make it so that the projects first index (the name) is shown as the header
-//in the mainarea, then the rest of the project are listed as objects beneath.
-//Take date and prio last, use same logic as listview function.
+// const showTodo () => {
+
+// }
+// const showProjectToDo = () => {
+//   for (let i = 0; i < projects.length; i++) {
+//     if (projects[i].project == "PROSJEKTNAVN") {
+//       //kjør funksjon? Display alle todos
+//       showTodo();
+//     }
+//   }
+// };

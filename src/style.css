@@ -29,7 +29,14 @@ html, body{
     background-color: rgb(146, 14, 14);
 }
 
-.aproject{
-    padding: 1rem;
+.sidebarbtn{
+    border-radius: 3px;
     font-size: 2rem;
+    background-color: rgb(80, 78, 212);
+    border: none;
+    transition-duration: 0.4s;
+}
+
+.sidebarbtn:hover{
+    background-color: rgb(85, 11, 11);
 }
